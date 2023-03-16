@@ -42,9 +42,4 @@ export const action = async ({ request }: ActionArgs) => {
     ok: true, 
     proofId: proofId
   });
-
-  // do something with the proofID
-
-
-
 };
