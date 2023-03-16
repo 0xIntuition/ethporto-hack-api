@@ -12,6 +12,7 @@
     "@remix-run/vercel": "^1.14.3",
     "@sismo-core/zk-connect-server": "^0.0.2",
     "@vercel/node": "^2.6.2",
+    "dotenv": "^16.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

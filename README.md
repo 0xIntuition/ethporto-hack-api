@@ -1,5 +1,11 @@
 # Welcome to Remix!
 
+## ENV FIELDS
+Please create a `.env` file with the following variables set
+```
+SISMO_GROUP_ID 
+```
+
 - [Remix Docs](https://remix.run/docs)
 
 ## Deployment
