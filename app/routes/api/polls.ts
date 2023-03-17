@@ -15,7 +15,7 @@ const polls: Polls = {
     },
     "yellow-paper-evm": {
         options: ["Option 1", "Option 2", "Option 3"],
-      },
+    },
 }
 
 export async function loader({ request}: LoaderArgs) {
