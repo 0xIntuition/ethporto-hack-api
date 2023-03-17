@@ -23,12 +23,12 @@ export async function loader({ request}: LoaderArgs) {
         return json({ error: 'Invalid request method' }, { status: 400 });
       }
 
-    const requestData = await request.json();
-    const slug = requestData.slug;
+  const url = new URL(request.url);
+  const slug = url.searchParams.get("slug");
 
-    if ((polls[slug] !== null)) {
-        return json(polls[slug])
-    } else {
-        return json({ error: 'Invalid slug' }, { status: 400 });
-    }
+  if (slug && polls[slug]) {
+    return json(polls[slug]);
+  } else {
+    return json({ error: "Invalid slug" }, { status: 400 });
+  }
 }
