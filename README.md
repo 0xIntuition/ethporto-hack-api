@@ -5,7 +5,12 @@ Please create a `.env` file with the following variables set
 ```
 SISMO_GROUP_ID 
 SISMO_APP_ID
+
 INTUITION_RELAYER_PRIVATE_KEY
+INTUITION_WRAPPER_CONTRACT_ADDRESS
+
+RPC_URL
+CHAIN_ID
 ```
 
 - [Remix Docs](https://remix.run/docs)
