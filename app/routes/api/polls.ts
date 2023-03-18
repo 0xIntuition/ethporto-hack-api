@@ -20,6 +20,9 @@ export async function loader({ request }: LoaderArgs) {
   const { searchParams } = new URL(request.url);
   const slugComponent = searchParams.get("slug");
   const slug = slugComponent ? decodeURIComponent(slugComponent) : null;
+  console.log("slug", slug);
+  console.log("polls", polls);
+  console.log("polls[slug]", polls[slug!]);
   if (slug && polls[slug] !== null) {
     return json(polls[slug]);
   } else {
