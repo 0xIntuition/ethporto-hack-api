@@ -61,11 +61,8 @@ export const action = async ({ request }: ActionArgs) => {
 
   const proofId = verifiedStatements[0].proofId;
 
-  return await cors(
-    request,
-    json({
-      ok: true,
-      proofId: proofId,
-    })
-  );
+  return json({
+    ok: true,
+    proofId: proofId,
+  });
 };

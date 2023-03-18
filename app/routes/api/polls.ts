@@ -22,14 +22,9 @@ export async function loader({ request }: LoaderArgs) {
   const requestData = await request.json();
   const slug = requestData.slug;
 
-  return cors(
-    request,
-    (() => {
-      if (polls[slug] !== null) {
-        return json(polls[slug]);
-      } else {
-        return json({ error: "Invalid slug" }, { status: 400 });
-      }
-    })()
-  );
+  if (polls[slug] !== null) {
+    return json(polls[slug]);
+  } else {
+    return json({ error: "Invalid slug" }, { status: 400 });
+  }
 }
