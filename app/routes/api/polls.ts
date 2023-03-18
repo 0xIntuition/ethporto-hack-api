@@ -16,7 +16,7 @@ const polls: Polls = {
   },
 };
 
-export async function action({ request }: ActionArgs) {
+export async function loader({ request }: LoaderArgs) {
   const { searchParams } = new URL(request.url);
   const slugComponent = searchParams.get("slug");
   const slug = slugComponent ? decodeURIComponent(slugComponent) : null;
