@@ -1,4 +1,4 @@
-import { json, LoaderArgs } from "@remix-run/node";
+import { ActionArgs, json, LoaderArgs } from "@remix-run/node";
 
 interface Poll {
   prompt: string;
@@ -16,9 +16,10 @@ const polls: Polls = {
   },
 };
 
-export async function loader({ request }: LoaderArgs) {
+export async function action({ request }: ActionArgs) {
   const { searchParams } = new URL(request.url);
-  const slug = searchParams.get("slug");
+  const slugComponent = searchParams.get("slug");
+  const slug = slugComponent ? decodeURIComponent(slugComponent) : null;
   if (slug && polls[slug] !== null) {
     return json(polls[slug]);
   } else {
