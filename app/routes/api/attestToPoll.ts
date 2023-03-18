@@ -52,10 +52,10 @@ async function voteOnPoll(user: string, option: string, poll: string) {
       user,
       option,
       poll,
-      "0x",
-      "0x",
-      "0x",
-      "0x"
+      "0",
+      "0",
+      "0",
+      "0"
     );
     console.log("Transaction hash:", tx.hash);
     await tx.wait();
