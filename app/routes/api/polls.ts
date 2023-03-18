@@ -1,6 +1,7 @@
 import { json, LoaderArgs } from "@remix-run/node";
 
 interface Poll {
+  prompt: string;
   options: string[];
 }
 
@@ -9,19 +10,16 @@ interface Polls {
 }
 
 const polls: Polls = {
-  "this-is-an-awesome-slug": {
-    options: ["Option 1", "Option 2", "Option 3"],
-  },
-  "yellow-paper-evm": {
-    options: ["Option 1", "Option 2", "Option 3"],
+  "/en/developers/tutorials/hello-world-smart-contract/": {
+    prompt: "How helpful did you find this tutorial?",
+    options: ["Very helpful", "Somewhat helpful", "Not helpful"],
   },
 };
 
 export async function loader({ request }: LoaderArgs) {
-  const requestData = await request.json();
-  const slug = requestData.slug;
-
-  if (polls[slug] !== null) {
+  const { searchParams } = new URL(request.url);
+  const slug = searchParams.get("slug");
+  if (slug && polls[slug] !== null) {
     return json(polls[slug]);
   } else {
     return json({ error: "Invalid slug" }, { status: 400 });
