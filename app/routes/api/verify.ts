@@ -1,4 +1,4 @@
-import { ActionArgs, json } from "@remix-run/node";
+import { ActionArgs, json, LoaderArgs } from "@remix-run/node";
 import {
   ZkConnect,
   ZkConnectServerConfig,
@@ -42,8 +42,10 @@ const zkConnectConfig: ZkConnectServerConfig = {
 
 const dataRequest = DataRequest({ groupId: process.env.SISMO_GROUP_ID });
 
-export const loader = async () => {
-  return json({ ok: true });
+export const loader = async ({ request }: LoaderArgs) => {
+  return await cors(request, json({ ok: true }), {
+    allowedHeaders: ["content-type"],
+  });
 };
 // Handles a post request to /api/verify
 export const action = async ({ request }: ActionArgs) => {
