@@ -1,5 +1,4 @@
 import { json, LoaderArgs } from "@remix-run/node";
-import { cors } from "remix-utils";
 
 interface Poll {
   options: string[];
