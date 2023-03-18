@@ -5,7 +5,7 @@ import {
   DataRequest,
 } from "@sismo-core/zk-connect-server";
 import { cors } from "remix-utils";
-import { ethers } from "ethers";
+import { ethers, ZeroHash } from "ethers";
 
 require("dotenv").config();
 
@@ -53,9 +53,9 @@ async function voteOnPoll(user: string, option: string, poll: string) {
       option,
       poll,
       "0",
-      "",
-      "",
-      ""
+      ZeroHash,
+      ZeroHash,
+      ZeroHash
     );
     console.log("Transaction hash:", tx.hash);
     await tx.wait();
